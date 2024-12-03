@@ -92,6 +92,7 @@ $F = G \cdot \dfrac{(m_1 m_2)}{(r^2 + \epsilon )}$
    git clone https://github.com/Mvcart/SqueakSiege
 
 ### 2. **CRÉDITOS**
-[https://www.fisica.ufjf.br/~sjfsato/fiscomp1/node45.html#:~:text=O%20m%C3%A9todo%20de%20Euler%20consiste,Taylor%20truncada%20na%20primeira%20derivada.&text=%C3%A9%20em%20geral%20uma%20fun%C3%A7%C3%A3o%20das%20vari%C3%A1veis%20dependentes%20e%20independentes.]Método de Euler
-Marcos Cota        - 15511001
-Kattryel Rezende   - 15522383
+-[Método de Euler](https://www.fisica.ufjf.br/~sjfsato/fiscomp1/node45.html#:~:text=O%20m%C3%A9todo%20de%20Euler%20consiste,Taylor%20truncada%20na%20primeira%20derivada.&text=%C3%A9%20em%20geral%20uma%20fun%C3%A7%C3%A3o%20das%20vari%C3%A1veis%20dependentes%20e%20independentes.)
+-[Gravitação Universal](https://brasilescola.uol.com.br/fisica/gravitacao-universal.htm)
+- Marcos Cota        - 15511001
+- Kattryel Rezende   - 15522383
