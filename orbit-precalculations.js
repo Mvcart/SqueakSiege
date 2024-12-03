@@ -250,7 +250,7 @@ document.getElementById("add_planet").addEventListener("click", (e) => {
 });
 
 // Criacao de corpos no universo
-var sun = new Planet(1, 0, 0, 0, 0, "Sol");
+var sun = new Planet(2, 0, 0, 0, 0, "Sol");
 var planets = [];
 var bodies = planets.concat([sun]);
 var rocket = new Rocket(0.5, 0, 0, 1);
