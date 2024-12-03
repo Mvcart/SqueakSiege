@@ -93,4 +93,4 @@ $F = G \cdot \dfrac{(m_1 m_2)}{(r^2 + \epsilon )}$
 
 ### 2. **CRÉDITOS**
 Marcos Cota        - 15511001
-Kettryel Rezende   - 15522383
+Kattryel Rezende   - 15522383
