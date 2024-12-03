@@ -24,7 +24,7 @@ ctx.lineWidth = 1;          // Largura do contorno
 
 // Funcao para transformar coordenadas do mundo para o canvas
 function trf(x, y) {
-    const zoom = 4;
+    const zoom = 6;
     x = (zoom/2 + x) * CANVAS_WIDTH / zoom;
     y = (zoom/2 - y) * CANVAS_HEIGHT / zoom;
     return [x, y];
@@ -251,8 +251,7 @@ document.getElementById("add_planet").addEventListener("click", (e) => {
 
 // Criacao de corpos no universo
 var sun = new Planet(1, 0, 0, 0, 0, "Sol");
-var earth = new Planet(0.01, -1, 0, 0, -1, "Terra");
-var planets = [earth];
+var planets = [];
 var bodies = planets.concat([sun]);
 var rocket = new Rocket(0.5, 0, 0, 1);
 var universe = new Universe(sun, planets, rocket);
@@ -273,6 +272,32 @@ sunMassInput.min = 0.1; // Defina um valor mínimo adequado
 sunMassInput.max = 1000; // Defina um valor máximo adequado
 sunMassInput.step = 0.1;
 sunMassInput.value = sun.m; // Define o valor inicial como a massa inicial do Sol
+
+// Valores iniciais dos inputs do foguete
+document.getElementById("rocket_x").value = rocket.x;
+document.getElementById("rocket_y").value = rocket.y;
+document.getElementById("rocket_u").value = rocket.u;
+document.getElementById("rocket_v").value = rocket.v;
+
+// Evento para atualizar as propriedades do foguete com base nos inputs
+document.getElementById("update_rocket").addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Captura os valores dos inputs
+    const x = parseFloat(document.getElementById("rocket_x").value);
+    const y = parseFloat(document.getElementById("rocket_y").value);
+    const u = parseFloat(document.getElementById("rocket_u").value);
+    const v = parseFloat(document.getElementById("rocket_v").value);
+
+    // Atualiza as propriedades do foguete
+    rocket.x = x;
+    rocket.y = y;
+    rocket.u = u;
+    rocket.v = v;
+
+    // Opcional: Atualize a visualização da trajetória
+    rocket.render_trajectory();
+});
 
 // Loop de atualizacao e renderizacao do universo
 window.setInterval(() => {
@@ -308,14 +333,16 @@ document.addEventListener("keydown", (event) => {
 var slider_1 = document.getElementById("input_planet_mass");
 slider_1.oninput = function () {
     let m = slider_1.value / 1000;
-    universe.planets[0].m = m;
-    let p = document.getElementById("p_planet_mass");
-    p.innerHTML = "Massa do planeta = " + m;
+    if (planets.length > 0) {
+        universe.planets[0].m = m;
+        let p = document.getElementById("p_planet_mass");
+        p.innerHTML = "Massa do planeta = " + m;
+    }
 };
 slider_1.min = 0;
 slider_1.max = 5000;
 slider_1.step = 1;
-slider_1.value = universe.planets[0].m * 1000;
+slider_1.value = planets.length > 0 ? universe.planets[0].m * 1000 : 0;
 
 // Calcula a velocidade do foguete
 function speed(u, v) {
